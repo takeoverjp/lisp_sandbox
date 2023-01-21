@@ -1,0 +1,10 @@
+(defun my-length (x)
+  (cond ((null x) 0)
+        (t (1+ (length (cdr x))))))
+(defun my-length-do (x)
+  (do ((count 0 (1+ count)))
+      ((null x) count)
+      (setq x (cdr x))))
+
+(print (my-length '(1 2 4)))
+(print (my-length-do '(1 2 4)))
