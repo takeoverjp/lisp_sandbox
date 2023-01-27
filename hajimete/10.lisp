@@ -16,3 +16,17 @@
 
 (print (my-subst 'kk nil '(a b (b a) nil a)))
 (print (my-subst2 'kk nil '(a b (b a) nil a)))
+
+(defun fun-length (x)
+  (cond ((null x) 0)
+        (t (1+ (length (cdr x))))))
+
+(defmacro if-null (nan dos1 dos2)
+  `(cond ((null ,nan) ,dos1)
+         (t ,dos2)))
+
+(defun macro-length (x)
+  (if-null x 0 (1+ (length (cdr x)))))
+
+(print (fun-length '(1 2 3)))
+(print (macro-length '(1 2 3)))
