@@ -30,3 +30,12 @@
 
 (print (fun-length '(1 2 3)))
 (print (macro-length '(1 2 3)))
+
+(defmacro my-pop (x) `(prog1 (car ,x) (setq ,x (cdr ,x))))
+(defmacro my-push (y x) `(setq ,x (cons ,y ,x)))
+
+(setq x (list 1 2 3))
+(print (my-pop x))
+(print x)
+(my-push 1 x)
+(print x)
