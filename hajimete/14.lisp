@@ -7,3 +7,8 @@
 (print (foo 1 2 3))
 (print (foo 1 2))
 (print (foo 1))
+
+(let ((s (open "14.lisp" :direction :input)))
+     (write (read s))
+     (write (read s))
+     (close s))
