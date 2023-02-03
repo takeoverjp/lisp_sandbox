@@ -1,0 +1,1 @@
+(loop (write (eval (read))))
