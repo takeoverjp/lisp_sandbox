@@ -4,3 +4,35 @@
 
 (print (fact 0))
 (print (fact 5))
+
+(defun mygcd (n m)
+  (let ((r (mod n m)))
+    (if (= r 0)
+      m
+      (mygcd m r))))
+
+(print (mygcd 512 968))
+(print (mygcd 968 512))
+
+(defun rev (l)
+  (if (= (length l) 0)
+    l
+    (append (rev (cdr l)) (list (car l)))))
+
+(print (rev '(1 2 3 4 5)))
+
+(defun fib (n)
+  (cond ((= n 1) 1)
+        ((= n 2) 1)
+        (t (+ (fib (- n 1)) (fib (- n 2))))))
+
+(time (fib 30))
+
+(defun fib2 (n)
+  (let ((a1 1) (a2 1) (f 1))
+    (dotimes (e (- n 2) f)
+      (setq f (+ a1 a2))
+      (setq a2 a1)
+      (setq a1 f))))
+
+(time (fib2 30))
