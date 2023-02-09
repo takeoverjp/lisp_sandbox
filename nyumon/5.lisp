@@ -36,3 +36,24 @@
       (setq a1 f))))
 
 (time (fib2 30))
+
+
+(defun qsort (lst)
+  (if lst
+    (let ((lst1)
+          (lst2)
+          (pivot (car lst)))
+      (multiple-value-setq (lst1 lst2)
+        (bunkatsu (cdr lst) pivot lst1 lst2))
+      (append (qsort lst1)
+        (cons pivot (qsort lst2))))))
+
+(defun bunkatsu (lst pivot lst1 lst2)
+  (if (null lst)
+    (values-list (list lst1 lst2))
+    (let ((a (car lst)))
+      (if (< a pivot)
+        (bunkatsu (cdr lst) pivot (cons a lst1) lst2)
+        (bunkatsu (cdr lst) pivot lst1 (cons a lst2))))))
+
+(print (qsort '(5 1 3 6 5 6 9 1 4)))
