@@ -57,3 +57,12 @@
         (bunkatsu (cdr lst) pivot lst1 (cons a lst2))))))
 
 (print (qsort '(5 1 3 6 5 6 9 1 4)))
+
+(defun myhanoi (n cur to tmp)
+  (if (= n 1)
+    (format t "disk ~A: ~A -> ~A~%" n cur to)
+    (progn
+      (myhanoi (1- n) cur tmp to)
+      (format t "disk ~A : ~A -> ~A~%" n cur to)
+      (myhanoi (1- n) tmp to cur))))
+(myhanoi 5 'A 'B 'C)
