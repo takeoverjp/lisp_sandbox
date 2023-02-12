@@ -2,14 +2,14 @@
   (if (eq n 0) 1
     (* n (fact (1- n)))))
 
-(defun fact2 (n ans)
+(defun fact2 (n &optional (ans 1))
   (if (eq n 0) ans
     (fact2 (1- n) (* n ans))))
 
 (print (fact 0))
 (print (fact 5))
-(print (fact2 0 1))
-(print (fact2 5 1))
+(print (fact2 0))
+(print (fact2 5))
 
 (defun mygcd (n m)
   (let ((r (mod n m)))
