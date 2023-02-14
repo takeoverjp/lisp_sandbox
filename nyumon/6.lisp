@@ -10,3 +10,12 @@
 
 (print (primep 23))
 (print (primep 39))
+
+(defun get10prime2 (count n result)
+  (if (= count 10)
+    result
+    (if (primep n)
+        (get10prime2 (1+ count) (1- n) (cons n result))
+        (get10prime2 count (1- n) result))))
+
+(print (get10prime2 0 10000 nil))
