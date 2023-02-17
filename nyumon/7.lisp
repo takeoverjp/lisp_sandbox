@@ -24,3 +24,5 @@
              (print (list A1 e1 A2 e2 A3 e3 A4))))))))
 
 (kippu '(1 3 4 3))
+
+(print ((lambda (x) (* x x)) 5))
