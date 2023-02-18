@@ -26,3 +26,13 @@
 (kippu '(1 3 4 3))
 
 (print ((lambda (x) (* x x)) 5))
+
+(defun nibun (f a b)
+  (if (< (- b a) 0.0001)
+      a
+      (if (> (* (funcall f a) (funcall f (/ (+ a b) 2))) 0)
+          (nibun f (/ (+ a b) 2) b)
+          (nibun f a (/ (+ a b) 2)))))
+
+(print (nibun (lambda (x) (- (* x x) x 2)) 0.0 5.0))
+(print (mapcar (lambda (x) (* x x)) '(1 2 3 4 5)))
