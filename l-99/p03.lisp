@@ -1,4 +1,6 @@
 (defun element-at (l i)
-  (nth (- i 1) l))
+  (if (= i 1)
+      (car l)
+      (element-at (cdr l) (1- i))))
 
 (print (element-at '(a b c d e) 3))
