@@ -1,0 +1,5 @@
+(defun paindromep (l)
+  (equal l (reverse l)))
+(print (paindromep '(a b c d a)))
+(print (paindromep '(a b c b a)))
+(print (paindromep '(a b b a)))
