@@ -7,3 +7,4 @@
 
 (print (is-prime 17))
 (print (is-prime 18))
+(print (is-prime 47))
