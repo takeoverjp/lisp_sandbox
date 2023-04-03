@@ -10,4 +10,10 @@
 (defun goldbach-between (m n)
   (mapcar #'goldbach (even-numbers-between m n)))
 
+(defun goldbach-list (m n lower)
+  (remove-if (lambda (x)
+               (or (null x) (< (car x) lower)))
+             (goldbach-between m n)))
+
 (print (goldbach-between 9 20))
+(print (goldbach-list 1 2000 50))
