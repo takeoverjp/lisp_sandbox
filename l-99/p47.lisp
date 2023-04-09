@@ -13,7 +13,8 @@
     ((eq (cadr e) 'and) (and (eval-infix a va b vb (car e)) (eval-infix a va b vb (caddr e))))
     ((eq (cadr e) 'nand) (not (and (eval-infix a va b vb (car e)) (eval-infix a va b vb (caddr e)))))
     ((eq (cadr e) 'or) (or (eval-infix a va b vb (car e)) (eval-infix a va b vb (caddr e))))
-    ((eq (cadr e) 'nor) (not (or (eval-infix a va b vb (car e)) (eval-infix a va b vb (caddr e)))))))
+    ((eq (cadr e) 'nor) (not (or (eval-infix a va b vb (car e)) (eval-infix a va b vb (caddr e)))))
+    ((eq (cadr e) 'equ) (eq (eval-infix a va b vb (car e)) (eval-infix a va b vb (caddr e))))))
 
 (table 'A 'B 'A)
 (table 'A 'B 'B)
@@ -24,3 +25,4 @@
 (table 'A 'B '(A and (A or (not B))))
 (table 'A 'B '(A nand B))
 (table 'A 'B '(A nor B))
+(table 'A 'B '(A equ B))
