@@ -8,4 +8,6 @@
 (defun add (digit word)
   (mapcar #'(lambda (x) (cons digit x)) word))
 
-(print (gray-list 2))
+(assert (equal (gray-list 0) '(nil)))
+(assert (equal (gray-list 1) '((#\0) (#\1))))
+(assert (equal (gray-list 2) '((#\0 #\0) (#\0 #\1) (#\1 #\1) (#\1 #\0))))
