@@ -1,3 +1,6 @@
+(defun cbal-tree-print (n)
+  (print (cbal-tree n)))
+
 (defun cbal-tree (n)
   (cond
     ((zerop n) '(()))
@@ -21,3 +24,5 @@
 (assert (equal '(()) (cbal-tree 0)))
 (assert (equal '((x nil nil)) (cbal-tree 1)))
 (assert (equal '((x nil (x nil nil)) (x (x nil nil) nil)) (cbal-tree 2)))
+
+(cbal-tree-print 4)
