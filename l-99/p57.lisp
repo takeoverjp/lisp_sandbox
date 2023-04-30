@@ -10,6 +10,6 @@
                                  (bst-add item (third tree))))
     (t tree)))
 
-(print (bst-add 1 nil))
-(print (bst-add 1 '(2 nil nil)))
-(print (bst-add 3 '(2 nil nil)))
+(assert (equal '(1 nil nil) (bst-add 1 nil)))
+(assert (equal '(2 (1 nil nil) nil) (bst-add 1 '(2 nil nil))))
+(assert (equal '(2 nil (3 nil nil)) (bst-add 3 '(2 nil nil))))
