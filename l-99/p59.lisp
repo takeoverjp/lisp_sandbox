@@ -4,5 +4,16 @@
       (setf a (append (mapcar #'(lambda (x) (list t1 x)) l2) a)))))
 
 (assert (equal nil (cart-product nil nil)))
-(assert (equal '((nil 2) (nil nil) (nil nil) (nil 2) (nil nil) (nil nil) (1 2) (1 nil) (1 nil)) (cart-product '(1 nil nil) '(2 nil nil))))
+(assert (equal '((nil nil)) (cart-product '(nil) '(nil))))
+(assert (equal '(((nil nil) nil)) (cart-product '((nil nil)) '(nil))))
+(assert (equal '(((nil nil) (nil nil))) (cart-product '((nil nil)) '((nil nil)))))
+(assert (equal '((nil (nil nil)) ((nil nil) (nil nil))) (cart-product '((nil nil) nil) '((nil nil)))))
 
+(defun add-first-x (l)
+  (mapcar #'(lambda (x) (cons 'x x)) l))
+
+(assert (equal nil (add-first-x (cart-product nil nil))))
+(assert (equal '((x nil nil)) (add-first-x (cart-product '(nil) '(nil)))))
+(assert (equal '((x (nil nil) nil)) (add-first-x (cart-product '((nil nil)) '(nil)))))
+(assert (equal '((x (nil nil) (nil nil))) (add-first-x (cart-product '((nil nil)) '((nil nil))))))
+(assert (equal '((x nil (nil nil)) (x (nil nil) (nil nil))) (add-first-x (cart-product '((nil nil) nil) '((nil nil))))))
