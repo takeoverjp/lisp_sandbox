@@ -30,7 +30,4 @@
          (cart-process (hbal-tree (- h 1)) (hbal-tree (- h 1)))
          (cart-process (hbal-tree (- h 1)) (hbal-tree (- h 2)))))))
 
-(defun hbal-tree-print (h)
-  (print (hbal-tree h)))
-
-(hbal-tree-print 2)
+(print (hbal-tree 3))
