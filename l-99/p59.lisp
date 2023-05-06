@@ -30,4 +30,7 @@
          (cart-process (hbal-tree (- h 1)) (hbal-tree (- h 1)))
          (cart-process (hbal-tree (- h 1)) (hbal-tree (- h 2)))))))
 
-(print (hbal-tree 3))
+(assert (equal '((x nil nil)) (hbal-tree 0)))
+(assert (equal '((x nil (x nil nil)) (x (x nil nil) (x nil nil)) (x (x nil nil) nil)) (hbal-tree 1)))
+; (print (hbal-tree 2))
+; (print (hbal-tree 3))
