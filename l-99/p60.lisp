@@ -7,3 +7,13 @@
 (assert (= 1 (min-nodes 0)))
 (assert (= 2 (min-nodes 1)))
 (assert (= 4 (min-nodes 2)))
+
+(defun max-height (n &optional (height -1) (last-maximum 0) (maximum 1))
+  (if (< n maximum)
+    height
+    (max-height n (1+ height) maximum (+ 1 last-maximum maximum))))
+
+(assert (= 0 (max-height 1)))
+(assert (= 1 (max-height 2)))
+(assert (= 1 (max-height 3)))
+(assert (= 2 (max-height 4)))
