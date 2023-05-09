@@ -17,3 +17,25 @@
 (assert (= 1 (max-height 2)))
 (assert (= 1 (max-height 3)))
 (assert (= 2 (max-height 4)))
+
+(load "p59.lisp")
+
+(defun hbal-tree-nodes (n)
+  (let ((result nil))
+    (dotimes (h (1+ (max-height n)) result)
+      (setf result (append (hbal-tree-aux n h) result)))))
+
+(defun hbal-tree-aux (n h)
+  (if (= n 0)
+      (if (= h -1) '(()) '())
+    (let ((a nil))
+      (dotimes (i n a)
+        (setf a (append (cart-process (hbal-tree-aux i (- h 2))
+                                      (hbal-tree-aux (- n i 1) (- h 1)))
+                        (cart-process (hbal-tree-aux i (- h 1))
+                                      (hbal-tree-aux (- n i 1) (- h 1)))
+                        (cart-process (hbal-tree-aux i (- h 1))
+                                      (hbal-tree-aux (- n i 1) (- h 2)))
+                        a))))))
+
+(print (hbal-tree-nodes 5))
