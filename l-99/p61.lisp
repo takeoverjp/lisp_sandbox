@@ -1,6 +1,5 @@
 (defun count-leaves (tree)
   (cond ((null tree) 0)
-        ((atom tree) 0)
         ((and (null (second tree))
               (null (third tree))) 1)
         (t (+ (count-leaves (second tree)) (count-leaves (third tree))))))

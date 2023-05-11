@@ -1,0 +1,10 @@
+(defun leaves (tree)
+  (cond ((null tree) nil)
+        ((and (null (second tree))
+              (null (third tree))) (list (first tree)))
+        (t (append (leaves (second tree)) (leaves (third tree))))))
+
+(assert (equal nil (leaves nil)))
+(assert (equal '(x) (leaves '(x nil nil))))
+(assert (equal '(b c) (leaves '(a (b nil nil) (c nil nil)))))
+(assert (equal '(c d) (leaves '(a (b nil (c nil nil)) (d nil nil)))))
