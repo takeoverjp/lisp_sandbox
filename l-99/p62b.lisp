@@ -1,0 +1,11 @@
+(defun atlevel (tree level)
+  (cond ((null tree) nil)
+        ((<= level 1) (list (first tree)))
+        (t (append (atlevel (second tree) (1- level))
+                   (atlevel (third tree) (1- level))))))
+
+(assert (equal nil (atlevel nil 0)))
+(assert (equal '(x) (atlevel '(x nil nil) 1)))
+(assert (equal '() (atlevel '(x nil nil) 2)))
+(assert (equal '(b c) (atlevel '(a (b nil nil) (c nil nil)) 2)))
+(assert (equal '(c) (atlevel '(a (b nil (c nil nil)) (d nil nil)) 3)))
